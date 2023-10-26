@@ -24,14 +24,14 @@
 
 <script>
 
-  if (typeof web3 === 'undefined') {
+  if (typeof window.ethereum === 'undefined') {
     render('web3 was not loaded before the page script ran.')
   } else {
     render('web3 was injected before the page scripts ran! The bug was not reproduced.')
   }
 
   window.addEventListener('load', function() {
-    if (typeof web3 === 'undefined') {
+    if (typeof window.ethereum === 'undefined') {
       render('wow! web3 was not even loaded after the window load event! This is worse than usual, but not unprecedented!')
     } else {
       render('web3 was injected after the window load event, which is what <a href="https://github.com/MetaMask/faq/blob/master/DEVELOPERS.md#partly_sunny-web3---ethereum-browser-environment-check">we now recommend to our users</a>.')
